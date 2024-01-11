@@ -106,15 +106,18 @@
 // export default Products;
 
 import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+
 import {
   useGetInSpecificCategoryQuery,
   useGetProductsQuery,
-} from "../../services/productsAPi";
+} from "../../redux/cartSlice/services/productsAPi";
 import Categories from "../Categories/Categories";
 import Pagination from "../Pagination/Pagination";
 import ProductItem from "../ProductItem/ProductItem";
 
 const Products = () => {
+  const location = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
   // category state
   const [clickedAll, setClickedAll] = useState(true);
@@ -173,6 +176,8 @@ const Products = () => {
               price={price}
               title={title}
               category={category}
+              id={id}
+              state={location}
             />
           ))}
         {categoryClicked &&
@@ -184,6 +189,8 @@ const Products = () => {
                 price={price}
                 title={title}
                 category={category}
+                id={id}
+                location={location}
               />
             )
           )}

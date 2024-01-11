@@ -38,11 +38,14 @@ export const productsApi = createApi({
     getInSpecificCategory: builder.query({
       query: (category) => `/products/category/${category}`,
     }),
+    getProductDetails: builder.query({
+      query: (id) => `products/${id}`,
+    }),
   }),
 });
 
 export const {
   useGetProductsQuery,
-
   useGetInSpecificCategoryQuery,
+  useGetProductDetailsQuery,
 } = productsApi;

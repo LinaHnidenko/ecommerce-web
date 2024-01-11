@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div>
-      <button>Cart</button>
+      <Link to="/cart">
+        <button>Cart</button>
+      </Link>
     </div>
   );
 };
