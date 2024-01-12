@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
+      <Link to="/">
+        <h2>StoreCart</h2>
+      </Link>
       <Link to="/cart">
         <button>Cart</button>
       </Link>

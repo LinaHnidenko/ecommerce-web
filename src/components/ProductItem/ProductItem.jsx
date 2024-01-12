@@ -32,7 +32,7 @@ const ProductItem = ({ image, category, title, price, id }) => {
       </Link>
       <h3>{title}</h3>
       <p>Category: {category}</p>
-      <p>{price}</p>
+      <p>${price}</p>
       <button onClick={handleAddToCart}>Add to cart</button>
     </li>
   );

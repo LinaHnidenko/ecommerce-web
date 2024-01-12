@@ -6,6 +6,7 @@ const Categories = ({ data, handleCategoryClick, handleAllBtnClick }) => {
   data?.forEach((product) => {
     uniqueCategories.add(product.category);
   });
+
   return (
     <ul>
       <li>

@@ -1,12 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { addToCart } from "../../redux/cartSlice/cartSlice";
-import { useGetProductDetailsQuery } from "../../redux/cartSlice/services/productsAPi";
+import { useGetProductDetailsQuery } from "../../redux/services/productsAPi";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const location = useLocation();
+
   const { data, isLoading, isError } = useGetProductDetailsQuery(id);
 
   const dispatch = useDispatch();
@@ -24,11 +25,12 @@ const ProductDetails = () => {
   return (
     <>
       <Link to={location.state}>Go Back</Link>
+
       <div>
         <img src={image} alt="" />
         <h2>{title}</h2>
         <p>{category}</p>
-        <p>{price}</p>
+        <p>${price}</p>
         <p>{description}</p>
         <p>Rate: {rating?.rate}</p>
         <button onClick={handleAddToCart}>Add to cart</button>
