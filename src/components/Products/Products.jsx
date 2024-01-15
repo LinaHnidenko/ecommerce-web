@@ -117,7 +117,6 @@ import Pagination from "../Pagination/Pagination";
 import ProductItem from "../ProductItem/ProductItem";
 
 const Products = () => {
-  const location = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
   // category state
   const [clickedAll, setClickedAll] = useState(true);
@@ -177,7 +176,6 @@ const Products = () => {
               title={title}
               category={category}
               id={id}
-              location={location}
             />
           ))}
         {categoryClicked &&
@@ -190,7 +188,6 @@ const Products = () => {
                 title={title}
                 category={category}
                 id={id}
-                location={location}
               />
             )
           )}
