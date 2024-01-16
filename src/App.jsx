@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart/Cart";
 import Header from "./components/Header/Header";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
-import Products from "./components/Products/Products";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -10,13 +10,13 @@ function App() {
       <div className="navbar">
         <Header />
       </div>
-      <div className="routes">
+      <main className="routes">
         <Routes>
-          <Route path="/" element={<Products />} />
+          <Route path="/" element={<Home />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
-      </div>
+      </main>
     </>
   );
 }
