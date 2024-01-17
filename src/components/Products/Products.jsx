@@ -106,7 +106,6 @@
 // export default Products;
 
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
 
 import {
   useGetInSpecificCategoryQuery,
@@ -127,7 +126,6 @@ const Products = () => {
   const productsByCategoryQuery =
     useGetInSpecificCategoryQuery(categoryClicked);
 
-  console.log(productsByCategoryQuery);
   const data = productsQuery.data;
 
   if (productsQuery.isLoading || productsByCategoryQuery.isLoading) {

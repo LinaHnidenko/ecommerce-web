@@ -4,6 +4,7 @@ import { TiMinus } from "react-icons/ti";
 
 const Hero = () => {
   const slides = ["images/hero/jewelry.jpg", "images/hero/man.jpg"];
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
