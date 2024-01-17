@@ -11,6 +11,7 @@ module.exports = {
       accent1: "#0066cc",
       accent2: "#99cc33",
       accent3: "#6c8fc7",
+      accent4: "rgb(231 236 243)",
     },
 
     container: {

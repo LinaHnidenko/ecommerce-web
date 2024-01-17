@@ -127,6 +127,7 @@ const Products = () => {
   const productsByCategoryQuery =
     useGetInSpecificCategoryQuery(categoryClicked);
 
+  console.log(productsByCategoryQuery);
   const data = productsQuery.data;
 
   if (productsQuery.isLoading || productsByCategoryQuery.isLoading) {
@@ -158,29 +159,17 @@ const Products = () => {
   };
 
   return (
-    <section>
-      <h2>Products</h2>
-      <Categories
-        data={data}
-        handleCategoryClick={handleCategoryClick}
-        handleAllBtnClick={handleAllBtnClick}
-      />
+    <section className="py-[50px]">
+      <div className="container ">
+        <Categories
+          data={data}
+          handleCategoryClick={handleCategoryClick}
+          handleAllBtnClick={handleAllBtnClick}
+        />
 
-      <ul>
-        {clickedAll &&
-          currentProducts?.map(({ image, category, title, price, id }) => (
-            <ProductItem
-              key={id}
-              image={image}
-              price={price}
-              title={title}
-              category={category}
-              id={id}
-            />
-          ))}
-        {categoryClicked &&
-          productsByCategoryQuery?.data?.map(
-            ({ image, category, title, price, id }) => (
+        <ul>
+          {clickedAll &&
+            currentProducts?.map(({ image, category, title, price, id }) => (
               <ProductItem
                 key={id}
                 image={image}
@@ -189,18 +178,31 @@ const Products = () => {
                 category={category}
                 id={id}
               />
-            )
-          )}
-      </ul>
+            ))}
+          {categoryClicked &&
+            productsByCategoryQuery?.data?.map(
+              ({ image, category, title, price, id }) => (
+                <ProductItem
+                  key={id}
+                  image={image}
+                  price={price}
+                  title={title}
+                  category={category}
+                  id={id}
+                />
+              )
+            )}
+        </ul>
 
-      {clickedAll && (
-        <Pagination
-          totalProducts={data.length}
-          productsPerPage={productsPerPage}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}
-        />
-      )}
+        {clickedAll && (
+          <Pagination
+            totalProducts={data.length}
+            productsPerPage={productsPerPage}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
+        )}
+      </div>
     </section>
   );
 };

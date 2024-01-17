@@ -8,7 +8,7 @@ const Header = () => {
   const totalAmount = useSelector(selectTotalAmount);
 
   return (
-    <header className=" bg-grayBg shadow">
+    <header className="bg-grayBg shadow sticky z-50 top-0">
       <div className="container flex justify-between items-center">
         <Link to="/">
           <h2 className="text-3xl font-bold py-4 text-lightBlue hover:text-accent3">
