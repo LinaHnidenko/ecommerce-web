@@ -1,5 +1,5 @@
 import React from "react";
-
+import { FaAngleLeft } from "react-icons/fa6";
 const Pagination = ({
   totalProducts,
   productsPerPage,
@@ -11,20 +11,25 @@ const Pagination = ({
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i += 1) {
     pages.push(i);
   }
+  <FaAngleLeft />;
   return (
-    <div>
+    <ul className="flex items-center justify-center gap-1">
       {pages.map((page, idx) => {
         return (
-          <button
-            key={idx}
-            onClick={() => setCurrentPage(page)}
-            className={page === currentPage ? "active" : ""}
-          >
-            {page}
-          </button>
+          <li className="rounded ">
+            <button
+              key={idx}
+              onClick={() => setCurrentPage(page)}
+              className={`${
+                page === currentPage ? "bg-darkBlueBtn" : ""
+              } w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-11 border border-accent1 rounded text-sm md:text-base transition-all `}
+            >
+              {page}
+            </button>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 

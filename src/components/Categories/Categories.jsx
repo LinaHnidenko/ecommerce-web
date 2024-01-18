@@ -8,14 +8,14 @@ const Categories = ({ data, handleCategoryClick, handleAllBtnClick }) => {
   });
 
   return (
-    <ul className="flex justify-center items-center gap-2 flex-wrap mb-8 md:text-lg xl:text-xl">
+    <ul className="flex justify-center items-center gap-2 flex-wrap mb-8 md:mb-12 xl:mb-[64px] md:text-lg xl:text-xl">
       <li className="grow-1 flex w-[140px] min-w-0 shrink-0 select-none flex-col items-center justify-center pl-4 transition-all ">
         <button
           onClick={handleAllBtnClick}
           name="all"
           className="flex w-full flex-col items-center gap-1 rounded-xl  px-3 py-2 bg-grayBg transition-all text-grayText hover:bg-accent4 hover:text-accent1 focus:bg-accent4 focus:text-accent1 active:text-accent1"
         >
-          <img src="images/category/all.png" alt="" className="w-6" />
+          <img src="images/category/all.png" alt="" className="w-7 xl:w-9" />
           All
         </button>
       </li>

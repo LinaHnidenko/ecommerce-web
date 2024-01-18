@@ -165,7 +165,7 @@ const Products = () => {
           handleAllBtnClick={handleAllBtnClick}
         />
 
-        <ul>
+        <ul className="flex justify-center items-center flex-col gap-5 md:flex-row md:flex-wrap md:gap-10 xl:gap-12 mb-6 md:mb-10 xl:mb-20">
           {clickedAll &&
             currentProducts?.map(({ image, category, title, price, id }) => (
               <ProductItem

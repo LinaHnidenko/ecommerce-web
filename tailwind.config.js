@@ -12,6 +12,8 @@ module.exports = {
       accent2: "#99cc33",
       accent3: "#6c8fc7",
       accent4: "rgb(231 236 243)",
+      borderItem: "rgb(207 217 229/1)",
+      gold: "#FFD700",
     },
 
     container: {
