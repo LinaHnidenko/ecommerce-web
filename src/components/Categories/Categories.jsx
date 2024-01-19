@@ -26,14 +26,15 @@ const Categories = ({ data, handleCategoryClick, handleAllBtnClick }) => {
           className="grow-1 flex  min-w-0 shrink-0  flex-col items-center justify-center pl-4 transition-all "
         >
           <button
-            onClick={handleCategoryClick}
+            onClick={(e) => handleCategoryClick(e, category)}
             name={category}
             className="flex w-full flex-col items-center gap-1 rounded-xl  px-3 py-2 bg-grayBg transition-all text-grayText hover:bg-accent4 hover:text-accent1 focus:bg-accent4 focus:text-accent1 active:text-accent1"
           >
             <img
               src={`images/category/${category}.png`}
-              alt=""
+              alt={category}
               className="w-7 xl:w-9"
+              onClick={(e) => handleCategoryClick(e, category)}
             />
             {category
               .split(" ")

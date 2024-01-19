@@ -16,7 +16,6 @@ const Products = () => {
   const [categoryClicked, setCategoryClicked] = useState(null);
 
   // requests
-
   const productsQuery = useGetProductsQuery();
   const productsByCategoryQuery =
     useGetInSpecificCategoryQuery(categoryClicked);
@@ -50,12 +49,9 @@ const Products = () => {
 
   const currentProducts = data?.slice(firstProductIndex, lastProductIndex);
 
-  // category clicks
-  const handleCategoryClick = (e) => {
-    const buttonName = e.target.name;
-
+  const handleCategoryClick = (e, categoryName) => {
     setClickedAll(false);
-    setCategoryClicked(buttonName);
+    setCategoryClicked(categoryName);
   };
 
   const handleAllBtnClick = () => {
