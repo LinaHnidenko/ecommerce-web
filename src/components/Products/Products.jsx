@@ -61,7 +61,7 @@ const Products = () => {
 
   return (
     <section className="py-[50px]">
-      <div className="container ">
+      <div className="container">
         <Categories
           data={data}
           handleCategoryClick={handleCategoryClick}
