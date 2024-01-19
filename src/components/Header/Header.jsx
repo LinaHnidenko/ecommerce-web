@@ -16,7 +16,7 @@ const Header = () => {
           </h2>
         </Link>
         <Link to="/cart" className="flex items-center relative">
-          <FiShoppingBag className="w-7 h-7  flex items-center" />
+          <FiShoppingBag className="w-7 h-7  flex items-center hover:fill-accent3 focus:fill-accent3 transition-all" />
           {totalAmount > 0 && (
             <span className="absolute bottom-0 right-0 -mb-2 -mr-2 flex w-4 h-4 flex-col items-center justify-center rounded bg-accent1 text-xs font-medium text-white  ">
               {totalAmount}

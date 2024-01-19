@@ -3,7 +3,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { TiMinus } from "react-icons/ti";
 
 const Hero = () => {
-  const slides = ["images/hero/jewelry.jpg", "images/hero/man.jpg"];
+  const slides = ["images/hero/man.jpg", "images/hero/jewelry.jpg"];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addToCart } from "../../redux/cartSlice/cartSlice";
@@ -12,8 +12,6 @@ Notify.init({
 });
 
 const ProductDetails = () => {
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
-
   const { id } = useParams();
 
   const { data, isLoading, isError } = useGetProductDetailsQuery(id);
@@ -28,7 +26,7 @@ const ProductDetails = () => {
 
   const handleAddToCart = () => {
     dispatch(addToCart({ id: Number(id), title, price, image }));
-    setIsAddedToCart(true);
+
     Notify.success("Added to cart");
   };
 
@@ -53,7 +51,7 @@ const ProductDetails = () => {
             <p className=" md:text-xl"> ${price}</p>
             <button
               onClick={handleAddToCart}
-              className="border rounded-md bg-darkBlueBtn py-3 px-6 items-self font-medium text-white shadow hover:bg-lightBlue mb-10"
+              className="border rounded-md bg-darkBlueBtn py-3 px-6 items-self font-medium text-white mb-10 shadow hover:bg-lightBlue focus:bg-lightBlue transition-all"
             >
               Add to cart
             </button>

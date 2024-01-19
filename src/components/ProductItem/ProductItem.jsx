@@ -1,18 +1,3 @@
-// import React from "react";
-
-// const ProductItem = ({ images, categoryName, name, price }) => {
-//   return (
-//     <li>
-//       <img src={images[0].baseUrl} alt={name} width="200px" height="200px" />
-//       <h3>{name}</h3>
-//       <p>Category: {categoryName}</p>
-//       <p>{price.formattedValue}</p>
-//     </li>
-//   );
-// };
-
-// export default ProductItem;
-
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";

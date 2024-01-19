@@ -1,112 +1,6 @@
-// import React, { useState } from "react";
-// import { useGetProductsQuery } from "../../services/productsAPi";
-// import Pagination from "../Pagination/Pagination";
-// import ProductItem from "../ProductItem/ProductItem";
-
-// const Products = () => {
-//   const productsQuery = useGetProductsQuery();
-
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const [productsPerPage, setProductsPerPage] = useState(6);
-//   const [filteredProducts, setFilteredProducts] = useState([]);
-
-//   const data = productsQuery.data;
-
-//   if (productsQuery.isLoading) {
-//     return <p>Loading...</p>;
-//   }
-
-//   if (productsQuery.isError) {
-//     return <p>Error loading data</p>;
-//   }
-
-//   const lastProductIndex = currentPage * productsPerPage;
-//   const firstProductIndex = lastProductIndex - productsPerPage;
-
-//   const currentProducts = data?.results?.slice(
-//     firstProductIndex,
-//     lastProductIndex
-//   );
-
-//   const uniqueCategories = new Set();
-
-//   data?.results?.forEach((product) => {
-//     uniqueCategories.add(product.categoryName);
-//   });
-
-//   const handleCategoryClick = (e) => {
-//     const buttonName = e.target.name;
-
-//     const filterProducts = data?.results?.filter(
-//       (product) => product.categoryName === buttonName
-//     );
-//     if (buttonName === "all") setFilteredProducts([]);
-
-//     return setFilteredProducts(filterProducts);
-//   };
-
-//   return (
-//     <section>
-//       <h2>Products</h2>
-//       <ul>
-//         <li>
-//           <button onClick={handleCategoryClick} name="all">
-//             All
-//           </button>
-//         </li>
-
-//         {[...uniqueCategories].map((category, idx) => (
-//           <li key={idx}>
-//             <button onClick={handleCategoryClick} name={category}>
-//               {category}
-//             </button>
-//           </li>
-//         ))}
-//       </ul>
-//       <ul>
-//         {filteredProducts.length > 0
-//           ? filteredProducts?.map(
-//               ({ images, categoryName, name, price, code: id }) => (
-//                 <ProductItem
-//                   key={id}
-//                   images={images}
-//                   price={price}
-//                   name={name}
-//                   categoryName={categoryName}
-//                 />
-//               )
-//             )
-//           : currentProducts?.map(
-//               ({ images, categoryName, name, price, code: id }) => (
-//                 <ProductItem
-//                   key={id}
-//                   images={images}
-//                   price={price}
-//                   name={name}
-//                   categoryName={categoryName}
-//                 />
-//               )
-//             )}
-//       </ul>
-//       <Pagination
-//         totalProducts={
-//           filteredProducts.length > 0
-//             ? filteredProducts.length
-//             : data.results.length
-//         }
-//         // totalProducts={data.results.length}
-//         productsPerPage={productsPerPage}
-//         setCurrentPage={setCurrentPage}
-//         currentPage={currentPage}
-//       />
-//     </section>
-//   );
-// };
-
-// export default Products;
-
 import React, { useState } from "react";
-
+import { Hourglass } from "react-loader-spinner";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 import {
   useGetInSpecificCategoryQuery,
   useGetProductsQuery,
@@ -122,6 +16,7 @@ const Products = () => {
   const [categoryClicked, setCategoryClicked] = useState(null);
 
   // requests
+
   const productsQuery = useGetProductsQuery();
   const productsByCategoryQuery =
     useGetInSpecificCategoryQuery(categoryClicked);
@@ -129,11 +24,23 @@ const Products = () => {
   const data = productsQuery.data;
 
   if (productsQuery.isLoading || productsByCategoryQuery.isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex justify-center items-center py-20">
+        <Hourglass
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="hourglass-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          colors={["#306cce", "#72a1ed"]}
+        />
+      </div>
+    );
   }
 
   if (productsQuery.isError || productsByCategoryQuery.isError) {
-    return <p>Error loading data</p>;
+    return Notify.failure("Error loading data");
   }
 
   // pagination
