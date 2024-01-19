@@ -12,7 +12,7 @@ const Header = () => {
       <div className="container flex justify-between items-center">
         <Link to="/">
           <h2 className="text-3xl font-bold py-4 text-lightBlue hover:text-accent3">
-            StoreCart
+            FavShop
           </h2>
         </Link>
         <Link to="/cart" className="flex items-center relative">
